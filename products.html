@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech | Магазин техніки</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">🛒 NovaTech</div>
+        <ul class="nav-list">
+            <li><a href="#">Головна</a></li>
+            <li><a href="#">Товари</a></li>
+            <li><a href="#">Контакти</a></li>
+        </ul>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <!-- Кошик на верхній панелі -->
+            <button id="cartTopBtn" style="background:#3b82f6; border:none; border-radius:8px; padding:6px 12px; cursor:pointer; color:white; display:flex; align-items:center; gap:5px;">
+                🛒 <span id="cartCount" style="background:#ef4444; border-radius:50%; padding:2px 6px; font-size:12px;">0</span>
+            </button>
+            
+            <!-- Авторизація -->
+            <div id="authPanel">
+                <div id="guestBox">
+                    <input type="text" id="navLogin" placeholder="Логін">
+                    <input type="password" id="navPassword" placeholder="Пароль">
+                    <button id="navLoginBtn">Вхід</button>
+                    <button id="navRegisterBtn">Реєстрація</button>
+                </div>
+                <div id="userBox" class="hidden">
+                    <span id="userName"></span>
+                    <button id="logoutBtn">Вихід</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding: 20px;">
+        <!-- Фільтри -->
+        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+            <input type="text" id="search" placeholder="🔍 Пошук..." style="padding: 8px; background:#1f2937; border:none; color:white;">
+            <input type="number" id="min" placeholder="Мін ціна" style="padding: 8px; background:#1f2937; border:none; color:white;">
+            <input type="number" id="max" placeholder="Макс ціна" style="padding: 8px; background:#1f2937; border:none; color:white;">
+        </div>
+
+        <!-- Адмін панель -->
+        <div id="adminPanel" class="hidden" style="background:#111827; padding:15px; margin-bottom:20px; border-radius:10px;">
+            <h3> Адмін панель</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="newName" placeholder="Назва товару" style="padding:8px; background:#1f2937; border:none; color:white;">
+                <input type="number" id="newPrice" placeholder="Ціна" style="padding:8px; background:#1f2937; border:none; color:white;">
+                <button id="addProduct" style="background:#eab308; border:none; padding:8px 15px; cursor:pointer;">➕ Додати</button>
+            </div>
+        </div>
+
+        <!-- Картки товарів -->
+        <div id="cards"></div>
+
+        <!-- Графік -->
+        <div style="text-align: center; margin-top: 30px;">
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                <select id="chartType" style="padding:8px; background:#1f2937; border:none; color:white;">
+                    <option value="bar"> Стовпці</option>
+                    <option value="pie"> Кругова</option>
+                    <option value="line"> Лінія</option>
+                </select>
+                <button id="resetChartBtn" style="background:#ef4444; border:none; padding:8px 15px; cursor:pointer; color:white;">🔄 Обнулити діаграму</button>
+            </div>
+            <canvas id="chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+
+    <!-- Кошик (бічна панель) -->
+    <div id="cart">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <strong>🛒 Кошик</strong>
+            <button id="cartClose" style="background:none; border:none; color:white; cursor:pointer;">✖</button>
+        </div>
+        <div id="cartItems"></div>
+        <div id="total" style="margin-top: 10px; font-weight: bold;">Сума: 0$</div>
+        <button id="orderBtn" style="margin-top: 10px; width:100%; background:#3b82f6; border:none; padding:8px; cursor:pointer;">📦 Замовити</button>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО АВТОРИЗАЦІЇ/РЕЄСТРАЦІЇ -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Авторизація</h3>
+                <button id="closeModal" style="background:none; border:none; color:white; font-size:24px; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Логін *</label>
+                    <input type="text" id="authLogin" placeholder="Введіть логін (мін. 3 символи)">
+                </div>
+                <div class="form-group">
+                    <label>Пароль *</label>
+                    <input type="password" id="authPassword" placeholder="Введіть пароль (мін. 6 символів + цифра)">
+                </div>
+                <div id="registerFields" class="hidden">
+                    <div class="form-group">
+                        <label>Повторіть пароль *</label>
+                        <input type="password" id="authPasswordRepeat" placeholder="Повторіть пароль">
+                    </div>
+                    <div class="form-group">
+                        <label>Email (необов'язково)</label>
+                        <input type="email" id="authEmail" placeholder="example@mail.com">
+                    </div>
+                </div>
+                <div id="validationErrors" class="error-messages"></div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button id="submitAuthBtn" class="btn-modal">Увійти</button>
+                    <button id="switchToRegister" class="btn-modal-secondary">Немає акаунту? Зареєструватись</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NovaTech News</title>
+
+<link rel="stylesheet" href="news.css">
+
+</head>
+
+<body>
+
+<nav>
+<ul class="nav-list">
+<li><a href="index.html">Головна</a></li>
+<li><a href="news.html" class="active">Новини</a></li>
+<li><a href="products.html">Товари</a></li>
+</ul>
+
+<button id="login-btn">Увійти</button>
+</nav>
+
+<!-- МОДАЛКА -->
+<div id="login">
+<form>
+<input type="email" placeholder="Email" required>
+<input type="password" placeholder="Пароль" required>
+<button>Увійти</button>
+</form>
+</div>
+
+<section>
+
+<h2>Останні новини</h2>
+
+<div class="news-wrapper">
+
+<!-- БІЧНА ПАНЕЛЬ -->
+<div id="news-sidebar"></div>
+
+<!-- ОСНОВНА НОВИНА -->
+<div id="news-main">
+<p>Оберіть новину...</p>
+</div>
+
+</div>
+
+<button id="loadMore">Більше</button>
+
+</section>
+
+<button id="topBtn">↑</button>
+
+<script src="news.js"></script>
+
+</body>
+</html>

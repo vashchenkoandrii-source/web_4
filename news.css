@@ -1,0 +1,147 @@
+body{
+margin:0;
+font-family:Arial;
+background:#0b1220;
+color:#e5e7eb;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111827;
+padding:8px 20px;
+}
+
+.nav-list{
+display:flex;
+gap:15px;
+list-style:none;
+}
+
+.nav-list a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.nav-list a:hover{
+color:#38bdf8;
+}
+
+.active{
+color:#60a5fa;
+}
+
+/* SECTION */
+section{
+padding:30px;
+text-align:center;
+}
+
+/* WRAPPER */
+.news-wrapper{
+display:flex;
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+/* SIDEBAR */
+#news-sidebar{
+width:35%;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* MAIN */
+#news-main{
+width:65%;
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+text-align:left;
+}
+
+/* NEWS CARD */
+.news-item{
+background:#1f2937;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.news-item:hover{
+background:#374151;
+transform:scale(1.02);
+}
+
+/* СТАТУСИ */
+.normal{
+border-left:4px solid gray;
+}
+
+.important{
+border-left:4px solid orange;
+font-weight:bold;
+}
+
+.vip{
+border-left:4px solid red;
+font-weight:bold;
+}
+
+/* КНОПКИ */
+button{
+margin-top:10px;
+padding:8px 12px;
+border:none;
+background:#38bdf8;
+cursor:pointer;
+border-radius:6px;
+}
+
+/* МОДАЛКА */
+#login{
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.7);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+#login form{
+background:#1f2937;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* КНОПКА ВГОРУ */
+#topBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+display:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.news-wrapper{
+flex-direction:column;
+}
+
+#news-sidebar, #news-main{
+width:100%;
+}
+
+}

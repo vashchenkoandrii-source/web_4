@@ -1,0 +1,114 @@
+body{
+margin:0;
+font-family:Arial;
+background:#0b1220;
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:10px 20px;
+background:#111827;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-right:10px;
+}
+
+/* SECTION */
+section{
+padding:40px;
+text-align:center;
+}
+
+/* КАРТКИ */
+#cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.card{
+background:#1f2937;
+padding:15px;
+width:200px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:100%;
+}
+
+.hidden{
+display:none;
+}
+
+/* КНОПКИ */
+button{
+padding:6px 10px;
+margin-top:10px;
+cursor:pointer;
+}
+
+/* ПІДПИСКА */
+#subscribe{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#1f2937;
+padding:15px;
+text-align:center;
+display:none;
+}
+
+#thanks{
+display:none;
+color:lightgreen;
+}
+
+/* РЕКЛАМА */
+#adModal{
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.ad-box{
+background:#1f2937;
+padding:20px;
+text-align:center;
+}
+
+/* КНОПКА ВГОРУ */
+#loginBtn{
+background:#38bdf8;
+border:none;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+color:black;
+font-weight:bold;
+transition:0.3s;
+}
+
+#loginBtn:hover{
+background:#0ea5e9;
+}
